@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="CloudSoccerService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="5" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WebRole1">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="peter@blackmetalcoder.se" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEHeCmk3m/Ta9SwraQFBN1XEwDQYJKoZIhvcNAQEBBQAEggEADdqLURsGW+3DlzzbyibO2zNDFAaPhg3dotiENjVykNjpf4mGodiL2cuQopKuZiNqJNk7pLiDbyo7QInbpJlUftLZcs2tnckCKkQHz4Gr0px4vOkLj4LiwzU1ieWlqYzaPxayYCY7apT6mySS01nTBC136N9ioIZwcX/sslWr0Niy7OgJgjNfk3bqpmA1hHwcWrV/RjhSuMpCJ/Jxosm6gTt5rGEwyWItpO5f/CeA0rgAcmXgiVKTJuJJ8jZyHEeo4B5ViCsy41OIvFro8YRMHY3xt2NaoAFxun35c9AodLE5C7LK1fdPyKBDDdX92F8bYjGlZstB5FlJrg+th03P/zAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECN9uG5F8IA0vgBDNoaSdPLc8M+HvruV73Ll+" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2019-06-26T23:59:59.0000000+02:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="56686be2-d583-4ab7-8d3e-b73f94e3b883" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="FA68F46B61D75466D8297923041A7BC252B0B907" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

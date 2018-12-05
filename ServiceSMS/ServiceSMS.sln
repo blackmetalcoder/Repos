@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceSMS", "ServiceSMS\ServiceSMS.csproj", "{A0D144CA-1F17-4EB9-A190-E5CF53A1624D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupSMS", "SetupSMS\SetupSMS.vdproj", "{8D7DAAB8-DF29-436C-977D-43F9031CB215}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0D144CA-1F17-4EB9-A190-E5CF53A1624D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0D144CA-1F17-4EB9-A190-E5CF53A1624D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0D144CA-1F17-4EB9-A190-E5CF53A1624D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0D144CA-1F17-4EB9-A190-E5CF53A1624D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D7DAAB8-DF29-436C-977D-43F9031CB215}.Debug|Any CPU.ActiveCfg = Debug
+		{8D7DAAB8-DF29-436C-977D-43F9031CB215}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5468EB3-4751-45F4-81DE-91D75EFB4F97}
+	EndGlobalSection
+EndGlobal

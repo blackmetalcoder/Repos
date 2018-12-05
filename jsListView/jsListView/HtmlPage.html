@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <!-- Metro 4 -->
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+    <link href="content/descktop.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="desktop">
+        <div class="window-area bg-dark"></div>
+        <div class="task-bar">
+            <div class="task-bar-section">
+                <button class="task-bar-item" id="start-menu-toggle"><span class="mif-windows"></span></button>
+                <div class="start-menu" data-role="dropdown" data-toggle-element="#start-menu-toggle">
+                    <div class="start-menu-inner h-100">
+                        <div class="explorer">
+                            <ul class="v-menu w-100 bg-brandColor2 fg-white">
+                                <li><a onclick="createWindowYoutube()">Youtube window</a></li>
+                                <li><a onclick="createWindow()">New window</a></li>
+                                <li><a onclick="createWindowModal()">Modal window</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="taskbar" class="task-bar-section tasks"></div>
+        </div>
+    </div>
+
+
+    <!-- jQuery first, then Metro UI JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+    <script src="Scripts/desktop.js"></script>
+    <script src="Scripts/csi.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".task-bar-item started").click(function () {
+                var myClass = $(this).attr("class");
+                alert(myClass);
+            });
+        });
+        var w_icons = [
+            'rocket', 'apps', 'cog', 'anchor'
+        ];
+        var w_titles = [
+            'rocket', 'apps', 'cog', 'anchor'
+        ];
+
+        function createWindow() {
+            var html;
+            html = $.get('Allalbums.html', function (data) {
+                var index = Metro.utils.random(0, 3);
+                Desktop.createWindow({
+                    width: 300,
+                    height:300,
+                    icon: "<span class='mif-" + w_icons[index] + "'></span>",
+                    title: w_titles[index],
+                    content: data //"<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>"
+                });
+            }); 
+           /* var index = Metro.utils.random(0, 3);
+            Desktop.createWindow({
+                width: 300,
+                icon: "<span class='mif-" + w_icons[index] + "'></span>",
+                title: w_titles[index],
+                content: html //"<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>"
+            });*/
+        }
+
+        function createWindowModal() {
+            Desktop.createWindow({
+                width: 300,
+                icon: "<span class='mif-cogs'></span>",
+                title: "Modal window",
+                content: "<div class='p-2'>This is desktop demo created with Metro 4 Components Library</div>",
+                overlay: true,
+                //overlayColor: "transparent",
+                modal: true,
+                place: "center",
+                onShow: function (win) {
+                    win.addClass("ani-swoopInTop");
+                    setTimeout(function () {
+                        win.removeClass("ani-swoopInTop");
+                    }, 1000);
+                },
+                onClose: function (win) {
+                    win.addClass("ani-swoopOutTop");
+                }
+            });
+        }
+
+        function createWindowYoutube() {
+            Desktop.createWindow({
+                width: 500,
+                icon: "<span class='mif-youtube'></span>",
+                title: "Youtube video",
+                content: "https://youtu.be/S9MeTn1i72g",
+                clsContent: "bg-dark"
+            });
+        }
+
+    </script>
+    <!-- ads-script -->
+
+</body>
+</html>

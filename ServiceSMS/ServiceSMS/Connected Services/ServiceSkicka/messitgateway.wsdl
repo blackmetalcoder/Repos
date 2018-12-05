@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://genericmobile.se/MessItGateway" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://genericmobile.se/MessItGateway" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://genericmobile.se/MessItGateway">
+      <s:element name="SendMessages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="async" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMessagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMessagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInbox">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="onlyNewMessages" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInboxResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInboxItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="smsID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteInboxItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteInboxItemResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendMessagesSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMessages" />
+  </wsdl:message>
+  <wsdl:message name="SendMessagesSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInbox" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInboxResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInboxItemSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteInboxItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInboxItemSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteInboxItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMessagesHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+    <wsdl:part name="async" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMessagesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="onlyNewMessages" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInboxItemHttpGetIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="smsID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInboxItemHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMessagesHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="xml" type="s:string" />
+    <wsdl:part name="async" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendMessagesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="onlyNewMessages" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInboxHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInboxItemHttpPostIn">
+    <wsdl:part name="user" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="smsID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteInboxItemHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="MessItGatewaySoap">
+    <wsdl:operation name="SendMessages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send messages to MessItGateway.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Parameters&lt;/b&gt;&lt;br /&gt;&lt;i&gt;user&lt;/i&gt;&lt;br /&gt;The username for the account.&lt;br /&gt;&lt;i&gt;password&lt;/i&gt;&lt;br /&gt;The password for the account.&lt;br /&gt;&lt;i&gt;xml&lt;/i&gt;&lt;br /&gt;XML string with messages to send, see XML Schema &lt;a href="MessItGatewaySendMessages_20.xsd"&gt;MessItGatewaySendMessages_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;i&gt;async&lt;/i&gt;&lt;br /&gt;If set to true the method will return after validation of the XML string, before the messages are sent.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Return Value&lt;/b&gt;&lt;br /&gt;XML string, see XML Schema &lt;a href="MessItGatewayResult_20.xsd"&gt;MessItGatewayResult_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Remarks&lt;/b&gt;&lt;br /&gt;To get DeliveryReports for your sent messages implement&lt;br /&gt;your own &lt;a href="MessItGatewayNotifications.asmx"&gt;Notification handler&lt;/a&gt; and send its address to our customer support.&lt;br /&gt;&lt;br /&gt;&lt;hr /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:SendMessagesSoapIn" />
+      <wsdl:output message="tns:SendMessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Fetches messages from MessItGateway inbox.&lt;br /&gt;&lt;b&gt;Parameters&lt;/b&gt;&lt;br /&gt;&lt;i&gt;user&lt;/i&gt;&lt;br /&gt;The username for the account.&lt;br /&gt;&lt;i&gt;password&lt;/i&gt;&lt;br /&gt;The password for the account.&lt;br /&gt;&lt;i&gt;onlyNewMessages&lt;/i&gt;&lt;br /&gt;If set to true only new, not previously fetched messages, will be returned.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Return Value&lt;/b&gt;&lt;br /&gt;XML string, see XML Schema &lt;a href="MessItGatewayResult_20.xsd"&gt;MessItGatewayResult_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Remarks&lt;/b&gt;&lt;br /&gt;To get a notification when a new messages is delivered to your inbox implement&lt;br /&gt;your own &lt;a href="MessItGatewayNotifications.asmx"&gt;Notification handler&lt;/a&gt; and send its address to our customer support.&lt;br /&gt;&lt;br /&gt;&lt;hr /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetInboxSoapIn" />
+      <wsdl:output message="tns:GetInboxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInboxItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the specified item from MessItGateway inbox.&lt;br /&gt;&lt;b&gt;Parameters&lt;/b&gt;&lt;br /&gt;&lt;i&gt;user&lt;/i&gt;&lt;br /&gt;The username for the account.&lt;br /&gt;&lt;i&gt;password&lt;/i&gt;&lt;br /&gt;The password for the account.&lt;br /&gt;&lt;i&gt;smsID&lt;/i&gt;&lt;br /&gt;The SmsID number, returned by GetInbox, of the message to delete.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Return Value&lt;/b&gt;&lt;br /&gt;XML string, see XML Schema &lt;a href="MessItGatewayResult_20.xsd"&gt;MessItGatewayResult_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;hr /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:DeleteInboxItemSoapIn" />
+      <wsdl:output message="tns:DeleteInboxItemSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MessItGatewayHttpGet">
+    <wsdl:operation name="SendMessages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send messages to MessItGateway.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Parameters&lt;/b&gt;&lt;br /&gt;&lt;i&gt;user&lt;/i&gt;&lt;br /&gt;The username for the account.&lt;br /&gt;&lt;i&gt;password&lt;/i&gt;&lt;br /&gt;The password for the account.&lt;br /&gt;&lt;i&gt;xml&lt;/i&gt;&lt;br /&gt;XML string with messages to send, see XML Schema &lt;a href="MessItGatewaySendMessages_20.xsd"&gt;MessItGatewaySendMessages_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;i&gt;async&lt;/i&gt;&lt;br /&gt;If set to true the method will return after validation of the XML string, before the messages are sent.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Return Value&lt;/b&gt;&lt;br /&gt;XML string, see XML Schema &lt;a href="MessItGatewayResult_20.xsd"&gt;MessItGatewayResult_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Remarks&lt;/b&gt;&lt;br /&gt;To get DeliveryReports for your sent messages implement&lt;br /&gt;your own &lt;a href="MessItGatewayNotifications.asmx"&gt;Notification handler&lt;/a&gt; and send its address to our customer support.&lt;br /&gt;&lt;br /&gt;&lt;hr /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:SendMessagesHttpGetIn" />
+      <wsdl:output message="tns:SendMessagesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Fetches messages from MessItGateway inbox.&lt;br /&gt;&lt;b&gt;Parameters&lt;/b&gt;&lt;br /&gt;&lt;i&gt;user&lt;/i&gt;&lt;br /&gt;The username for the account.&lt;br /&gt;&lt;i&gt;password&lt;/i&gt;&lt;br /&gt;The password for the account.&lt;br /&gt;&lt;i&gt;onlyNewMessages&lt;/i&gt;&lt;br /&gt;If set to true only new, not previously fetched messages, will be returned.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Return Value&lt;/b&gt;&lt;br /&gt;XML string, see XML Schema &lt;a href="MessItGatewayResult_20.xsd"&gt;MessItGatewayResult_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Remarks&lt;/b&gt;&lt;br /&gt;To get a notification when a new messages is delivered to your inbox implement&lt;br /&gt;your own &lt;a href="MessItGatewayNotifications.asmx"&gt;Notification handler&lt;/a&gt; and send its address to our customer support.&lt;br /&gt;&lt;br /&gt;&lt;hr /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetInboxHttpGetIn" />
+      <wsdl:output message="tns:GetInboxHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInboxItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the specified item from MessItGateway inbox.&lt;br /&gt;&lt;b&gt;Parameters&lt;/b&gt;&lt;br /&gt;&lt;i&gt;user&lt;/i&gt;&lt;br /&gt;The username for the account.&lt;br /&gt;&lt;i&gt;password&lt;/i&gt;&lt;br /&gt;The password for the account.&lt;br /&gt;&lt;i&gt;smsID&lt;/i&gt;&lt;br /&gt;The SmsID number, returned by GetInbox, of the message to delete.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Return Value&lt;/b&gt;&lt;br /&gt;XML string, see XML Schema &lt;a href="MessItGatewayResult_20.xsd"&gt;MessItGatewayResult_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;hr /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:DeleteInboxItemHttpGetIn" />
+      <wsdl:output message="tns:DeleteInboxItemHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MessItGatewayHttpPost">
+    <wsdl:operation name="SendMessages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Send messages to MessItGateway.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Parameters&lt;/b&gt;&lt;br /&gt;&lt;i&gt;user&lt;/i&gt;&lt;br /&gt;The username for the account.&lt;br /&gt;&lt;i&gt;password&lt;/i&gt;&lt;br /&gt;The password for the account.&lt;br /&gt;&lt;i&gt;xml&lt;/i&gt;&lt;br /&gt;XML string with messages to send, see XML Schema &lt;a href="MessItGatewaySendMessages_20.xsd"&gt;MessItGatewaySendMessages_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;i&gt;async&lt;/i&gt;&lt;br /&gt;If set to true the method will return after validation of the XML string, before the messages are sent.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Return Value&lt;/b&gt;&lt;br /&gt;XML string, see XML Schema &lt;a href="MessItGatewayResult_20.xsd"&gt;MessItGatewayResult_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Remarks&lt;/b&gt;&lt;br /&gt;To get DeliveryReports for your sent messages implement&lt;br /&gt;your own &lt;a href="MessItGatewayNotifications.asmx"&gt;Notification handler&lt;/a&gt; and send its address to our customer support.&lt;br /&gt;&lt;br /&gt;&lt;hr /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:SendMessagesHttpPostIn" />
+      <wsdl:output message="tns:SendMessagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Fetches messages from MessItGateway inbox.&lt;br /&gt;&lt;b&gt;Parameters&lt;/b&gt;&lt;br /&gt;&lt;i&gt;user&lt;/i&gt;&lt;br /&gt;The username for the account.&lt;br /&gt;&lt;i&gt;password&lt;/i&gt;&lt;br /&gt;The password for the account.&lt;br /&gt;&lt;i&gt;onlyNewMessages&lt;/i&gt;&lt;br /&gt;If set to true only new, not previously fetched messages, will be returned.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Return Value&lt;/b&gt;&lt;br /&gt;XML string, see XML Schema &lt;a href="MessItGatewayResult_20.xsd"&gt;MessItGatewayResult_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Remarks&lt;/b&gt;&lt;br /&gt;To get a notification when a new messages is delivered to your inbox implement&lt;br /&gt;your own &lt;a href="MessItGatewayNotifications.asmx"&gt;Notification handler&lt;/a&gt; and send its address to our customer support.&lt;br /&gt;&lt;br /&gt;&lt;hr /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:GetInboxHttpPostIn" />
+      <wsdl:output message="tns:GetInboxHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInboxItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the specified item from MessItGateway inbox.&lt;br /&gt;&lt;b&gt;Parameters&lt;/b&gt;&lt;br /&gt;&lt;i&gt;user&lt;/i&gt;&lt;br /&gt;The username for the account.&lt;br /&gt;&lt;i&gt;password&lt;/i&gt;&lt;br /&gt;The password for the account.&lt;br /&gt;&lt;i&gt;smsID&lt;/i&gt;&lt;br /&gt;The SmsID number, returned by GetInbox, of the message to delete.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;Return Value&lt;/b&gt;&lt;br /&gt;XML string, see XML Schema &lt;a href="MessItGatewayResult_20.xsd"&gt;MessItGatewayResult_20.xsd&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;&lt;hr /&gt;</wsdl:documentation>
+      <wsdl:input message="tns:DeleteInboxItemHttpPostIn" />
+      <wsdl:output message="tns:DeleteInboxItemHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MessItGatewaySoap" type="tns:MessItGatewaySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessages">
+      <soap:operation soapAction="http://genericmobile.se/MessItGateway/SendMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <soap:operation soapAction="http://genericmobile.se/MessItGateway/GetInbox" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInboxItem">
+      <soap:operation soapAction="http://genericmobile.se/MessItGateway/DeleteInboxItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MessItGatewaySoap12" type="tns:MessItGatewaySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessages">
+      <soap12:operation soapAction="http://genericmobile.se/MessItGateway/SendMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <soap12:operation soapAction="http://genericmobile.se/MessItGateway/GetInbox" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInboxItem">
+      <soap12:operation soapAction="http://genericmobile.se/MessItGateway/DeleteInboxItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MessItGatewayHttpGet" type="tns:MessItGatewayHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SendMessages">
+      <http:operation location="/SendMessages" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <http:operation location="/GetInbox" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInboxItem">
+      <http:operation location="/DeleteInboxItem" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MessItGatewayHttpPost" type="tns:MessItGatewayHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SendMessages">
+      <http:operation location="/SendMessages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInbox">
+      <http:operation location="/GetInbox" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteInboxItem">
+      <http:operation location="/DeleteInboxItem" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MessItGateway">
+    <wsdl:port name="MessItGatewaySoap" binding="tns:MessItGatewaySoap">
+      <soap:address location="https://www.minicall.se/messitgateway/messitgateway.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MessItGatewaySoap12" binding="tns:MessItGatewaySoap12">
+      <soap12:address location="https://www.minicall.se/messitgateway/messitgateway.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MessItGatewayHttpGet" binding="tns:MessItGatewayHttpGet">
+      <http:address location="https://www.minicall.se/messitgateway/messitgateway.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MessItGatewayHttpPost" binding="tns:MessItGatewayHttpPost">
+      <http:address location="https://www.minicall.se/messitgateway/messitgateway.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

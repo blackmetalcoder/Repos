@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+<ItemGroup>
+<PackageReference Include="Xamarin.Forms" Version="2.4.0.280"/>
+<PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="16.2.0.41"/>
+<PackageReference Include="Syncfusion.Xamarin.SfPopupLayout" Version="16.2.0.41"/>
+<PackageReference Include="Syncfusion.Xamarin.SfPicker" Version="16.2.0.41"/>
+<PackageReference Include="Syncfusion.Xamarin.SfNavigationDrawer" Version="16.2.0.41"/>
+<PackageReference Include="Syncfusion.Xamarin.SfMaskedEdit" Version="16.2.0.41"/>
+<PackageReference Include="Syncfusion.Xamarin.SfListView" Version="16.2.0.41"/>
+<PackageReference Include="Syncfusion.Xamarin.SfDataGrid" Version="16.2.0.41"/>
+<PackageReference Include="Syncfusion.Xamarin.SfDataForm" Version="16.2.0.41"/>
+<PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="16.2.0.41"/>
+</ItemGroup>
+
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
+      <DependentUpon>*.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

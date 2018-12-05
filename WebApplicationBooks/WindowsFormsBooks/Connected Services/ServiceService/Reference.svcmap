@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="354f0983-cd53-4e66-8bbe-bf6f96f40f13" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52400/ServiceBooks.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ServiceBooks.xsd" MetadataType="Schema" ID="c55a6a7f-d70c-45f0-b13d-dded7ac3a022" SourceId="1" SourceUrl="http://localhost:52400/ServiceBooks.svc?xsd=xsd1" />
+    <MetadataFile FileName="ServiceBooks.wsdl" MetadataType="Wsdl" ID="4a62e76f-7eed-4a01-8e84-a9a00ecaf208" SourceId="1" SourceUrl="http://localhost:52400/ServiceBooks.svc?wsdl" />
+    <MetadataFile FileName="ServiceBooks1.xsd" MetadataType="Schema" ID="4760f692-98d7-42cf-9818-2dfd70c0028c" SourceId="1" SourceUrl="http://localhost:52400/ServiceBooks.svc?xsd=xsd2" />
+    <MetadataFile FileName="ServiceBooks2.xsd" MetadataType="Schema" ID="890e6cc5-0123-4e1b-bc83-cccae810cba2" SourceId="1" SourceUrl="http://localhost:52400/ServiceBooks.svc?xsd=xsd0" />
+    <MetadataFile FileName="ServiceBooks.disco" MetadataType="Disco" ID="aad3de83-bace-4c40-97b5-7406c1aaa9f4" SourceId="1" SourceUrl="http://localhost:52400/ServiceBooks.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

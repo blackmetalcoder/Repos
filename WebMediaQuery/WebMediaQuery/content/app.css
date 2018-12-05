@@ -1,0 +1,33 @@
+﻿body {
+}
+#test{
+    height: 500px;
+}
+/* For mobile phones: */
+@media only screen and (max-width: 599px) {
+    /* For tablets: */
+    #test {
+        width: 100%;
+        background-color: aqua;
+    }
+    .container{
+        display:flex;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    #test{
+        background-color: red;
+
+    }
+    
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    #test {
+        background-color: #00ff21;
+    }
+}
+

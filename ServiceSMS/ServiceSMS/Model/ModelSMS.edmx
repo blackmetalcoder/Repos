@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="anicuraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DPT_TIDBOK">
+          <Key>
+            <PropertyRef Name="DATUM" />
+            <PropertyRef Name="SIGN" />
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="DATUM" Type="datetime" Nullable="false" />
+          <Property Name="SIGN" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="TID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="MINUTER" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="JOURNALNR" Type="varchar" MaxLength="8" />
+          <Property Name="ORSAK" Type="varchar" MaxLength="50" />
+          <Property Name="BOKNINGSTYPID" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="X_KUNDNR" Type="varchar" MaxLength="11" />
+          <Property Name="X_KUNDNAMN" Type="varchar" MaxLength="60" />
+          <Property Name="X_HEMTEL" Type="varchar" MaxLength="25" />
+          <Property Name="X_ARBTEL" Type="varchar" MaxLength="25" />
+          <Property Name="X_ALTTEL" Type="varchar" MaxLength="25" />
+          <Property Name="X_DJURNAMN" Type="varchar" MaxLength="30" />
+          <Property Name="X_RAS" Type="varchar" MaxLength="30" />
+          <Property Name="VTFNR" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="SCHEMA" Type="decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="BOKSIGN" Type="varchar" MaxLength="8" />
+          <Property Name="SEQID" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="X_PERSNR" Type="varchar" MaxLength="13" />
+          <Property Name="INTERVALL" Type="decimal" Precision="2" Scale="0" />
+          <Property Name="TJGTYPID" Type="char" MaxLength="2" />
+          <Property Name="AVSLUTAD" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="TJGTYPID_OUT" Type="varchar" MaxLength="50" />
+          <Property Name="NATT_SCHEMA" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="anicuraModelStoreContainer">
+          <EntitySet Name="DPT_TIDBOK" EntityType="Self.DPT_TIDBOK" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="anicuraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DPT_TIDBOK">
+          <Key>
+            <PropertyRef Name="DATUM" />
+            <PropertyRef Name="SIGN" />
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="DATUM" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SIGN" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MINUTER" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="JOURNALNR" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ORSAK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BOKNINGSTYPID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="X_KUNDNR" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="X_KUNDNAMN" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="X_HEMTEL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="X_ARBTEL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="X_ALTTEL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="X_DJURNAMN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="X_RAS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VTFNR" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="SCHEMA" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="BOKSIGN" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="SEQID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="X_PERSNR" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="INTERVALL" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="TJGTYPID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="AVSLUTAD" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="TJGTYPID_OUT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATT_SCHEMA" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="anicuraEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DPT_TIDBOK" EntityType="Self.DPT_TIDBOK" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="anicuraModelStoreContainer" CdmEntityContainer="anicuraEntities">
+          <EntitySetMapping Name="DPT_TIDBOK">
+            <EntityTypeMapping TypeName="anicuraModel.DPT_TIDBOK">
+              <MappingFragment StoreEntitySet="DPT_TIDBOK">
+                <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+                <ScalarProperty Name="SIGN" ColumnName="SIGN" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="MINUTER" ColumnName="MINUTER" />
+                <ScalarProperty Name="JOURNALNR" ColumnName="JOURNALNR" />
+                <ScalarProperty Name="ORSAK" ColumnName="ORSAK" />
+                <ScalarProperty Name="BOKNINGSTYPID" ColumnName="BOKNINGSTYPID" />
+                <ScalarProperty Name="X_KUNDNR" ColumnName="X_KUNDNR" />
+                <ScalarProperty Name="X_KUNDNAMN" ColumnName="X_KUNDNAMN" />
+                <ScalarProperty Name="X_HEMTEL" ColumnName="X_HEMTEL" />
+                <ScalarProperty Name="X_ARBTEL" ColumnName="X_ARBTEL" />
+                <ScalarProperty Name="X_ALTTEL" ColumnName="X_ALTTEL" />
+                <ScalarProperty Name="X_DJURNAMN" ColumnName="X_DJURNAMN" />
+                <ScalarProperty Name="X_RAS" ColumnName="X_RAS" />
+                <ScalarProperty Name="VTFNR" ColumnName="VTFNR" />
+                <ScalarProperty Name="SCHEMA" ColumnName="SCHEMA" />
+                <ScalarProperty Name="BOKSIGN" ColumnName="BOKSIGN" />
+                <ScalarProperty Name="SEQID" ColumnName="SEQID" />
+                <ScalarProperty Name="X_PERSNR" ColumnName="X_PERSNR" />
+                <ScalarProperty Name="INTERVALL" ColumnName="INTERVALL" />
+                <ScalarProperty Name="TJGTYPID" ColumnName="TJGTYPID" />
+                <ScalarProperty Name="AVSLUTAD" ColumnName="AVSLUTAD" />
+                <ScalarProperty Name="TJGTYPID_OUT" ColumnName="TJGTYPID_OUT" />
+                <ScalarProperty Name="NATT_SCHEMA" ColumnName="NATT_SCHEMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Playlist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#P1').hide();
+            var x = 'Ian';
+            var y = 'Ian';
+            var usernamn = 'Nisse';
+            var epost = 'peter@horja.se';
+            var U = "http://cdmolnet.se/CDService.asmx/addUser?fnamn='" + "nisse" + "'&enamn=nisse&epost=peter%40horja.se&usernamn=nisse&password=olle8910";
+           /* $.ajax({
+                    type: "POST",
+                   // url: U,
+                url: "http://cdmolnet.se/CDService.asmx/nyAvandare",
+                data: "{namn:'" + x + "', password: '" + y + "', usernamn:'" + usernamn + "', epost:'" + epost + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                crossDomain: true,
+                async: true,
+                success: successLogin,
+                error: function (msg) {
+                    alert(msg.statusText);
+                }
+            });
+            function successLogin(data) {
+                if (data.d === 'NO') {
+                    alert('Something went wrong, try again!');
+                } else {
+                    Materialize.toast('You are logged in!', 4000, 'rounded')
+                    $('#txtUser').val('');
+                    $('#txtLosen').val('');
+                    var s = data.d;
+                    var result = s.split(';');
+                    localStorage.id = result[1];
+                    localStorage.inloggad = 'Ja';
+                    localStorage.namn = result[0];
+
+                }
+            }*/
+
+           
+        });
+        $(document).on('click', '#btnUser', function (ev) {
+            var ok = true;
+            $('#P1').show();
+            var user = $('#username').val();
+            var password = $('#password').val();
+            var name = $('#name').val();
+            var email = $('#email').val();
+            $.ajax({
+                type: "POST",
+                url: "http://cdmolnet.se/CDService.asmx/finnsUser",
+                data: "{userNamn:'" + user + "'}",
+                crossDomain: true,
+                async: true,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: successFinnsUser,
+                error: function (msg) {
+                    console.log('Funkar inte!');
+                    //alert(msg.statusText);
+                    $('#P1').hide();
+                }
+            });
+            function successFinnsUser(data) {
+                var svar = data.d;
+                alert(svar);
+            }
+
+            function successPlaylist(data) {
+                $('#P1').hide();
+                var obj = JSON.parse(data.d);
+                Materialize.toast(data.d, 2000);
+            }
+        });
+        function validera(namn, usernamn, epost, password) {
+            //Namn
+            if (namn.length == 0) {
+                ok = false;
+                Materialize.toast('Enter your name', 4000);
+            }
+            //usernamn
+            if (usernamn.length == 0) {
+                ok = false;
+                Materialize.toast('Enter your username', 4000);
+            }
+            //password
+            if (password.length == 0) {
+                ok = false;
+                Materialize.toast('Enter your password', 4000);
+            }
+            //Email
+            var e = validateEmail(epost);
+            if (e == false) {
+                ok = false;
+                Materialize.toast('Enter a valid email-adress', 4000);
+            }
+            return ok;
+        }
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+        function logIn() {
+            var x ='Ian';
+            var y = 'Ian';
+            $.ajax({
+                type: "POST",
+                url: "http://cdmolnet.se/CDService.asmx/loggaIn",
+                data: "{usernamn:'" + x + "', password: '" + y + "'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: successLogin,
+                error: function (msg) {
+                    alert(msg.statusText);
+                }
+            });
+            function successLogin(data) {
+                if (data.d === 'NO') {
+                    alert('Something went wrong, try again!');
+                } else {
+                    Materialize.toast('You are logged in!', 4000, 'rounded')
+                    $('#txtUser').val('');
+                    $('#txtLosen').val('');
+                    var s = data.d;
+                    var result = s.split(';');
+                    localStorage.id = result[1];
+                    localStorage.inloggad = 'Ja';
+                    localStorage.namn = result[0];
+                    $('#userName').html('<h3>Welcome: ' + result[0] + '</h3>');
+                    $('#modal1').hide();
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row z-depth-4 valign-wrapper teal lighten-2" style="height:100px;">
+            <div class="center-align">
+                <h1>New user</h1>
+            </div>
+            
+            <div class="progress" id="P1">
+                <div class="indeterminate active"></div>
+            </div>
+        </div>
+        <button onClick="logIn();">Logga in</button>
+        <div class="container center-align">
+            <div class="row">
+                <div class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="Your username" id="username" type="text" class="validate" required="Your user name" aria-required="true">
+                            <label for="first_name">Username</label>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="name" type="text" class="validate">
+                            <label for="name">Your name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <button class="btn waves-effect waves-light" id="btnUser" name="btnUser">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+</body>
+</html>

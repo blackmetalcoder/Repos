@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMediaQuery", "WebMediaQuery\WebMediaQuery.csproj", "{B2E06C8A-5FF4-4180-8033-C238978DF0CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B2E06C8A-5FF4-4180-8033-C238978DF0CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2E06C8A-5FF4-4180-8033-C238978DF0CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2E06C8A-5FF4-4180-8033-C238978DF0CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2E06C8A-5FF4-4180-8033-C238978DF0CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D695B0D9-894C-4B1E-A2DD-D8830C653AB4}
+	EndGlobalSection
+EndGlobal
