@@ -1,0 +1,22 @@
+﻿{
+  "KorTid": "10:35:00",
+  "Meddelande": "Hej, [x_djurnamn] har en tid [datum], kl. [tid] till Anicura Hässleholm. Vid förhinder avboka senast 24h innan på 0451-84600. Uteblivet besök debiteras. Välkommen!",
+  "MeddelandeOP": "Hej, [x_djurnamn] har en tid [datum] till Anicura Hässleholm. Inskrivning 8-8:30, planerad operationstid [tid]. Kom fastande. Avboka senast 48h innan på 0451-84600. Uteblivet besök debiteras. Välkommen!",
+  "User": "901560-Utv",
+  "Pwd": "Trofast%3424",
+  "ExtededLogging": "true",
+  "Dagar": 2,
+  "DagarOP": 3,
+  "Operationskod": 22,
+  "BokningsId": [
+    { "value": 8 },
+    { "value": 2 }
+  ],
+  "BokningsIdOP": [
+    { "value": 22 }
+  ],
+  "KlinikKod": [
+    { "value": 2 }
+  ]
+}
+

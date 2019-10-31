@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="anicuraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DPT_KLINKOD">
+          <Key>
+            <PropertyRef Name="KLIN" />
+          </Key>
+          <Property Name="KLIN" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="NAMN" Type="varchar" MaxLength="41" />
+          <Property Name="DEB" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="BESOKAVG" Type="varchar" MaxLength="7" />
+          <Property Name="FAKTAVG" Type="varchar" MaxLength="7" />
+          <Property Name="POSTNR" Type="varchar" MaxLength="9" />
+          <Property Name="POSTADRESS" Type="varchar" MaxLength="30" />
+          <Property Name="GATUADRESS" Type="varchar" MaxLength="30" />
+          <Property Name="TELEFON" Type="varchar" MaxLength="20" />
+          <Property Name="LOGO" Type="image" />
+          <Property Name="RECEPT_BES" Type="varchar" MaxLength="7" />
+          <Property Name="RECEPT_TEL" Type="varchar" MaxLength="7" />
+          <Property Name="RECEPT_ARVODE_TXT" Type="varchar" MaxLength="255" />
+          <Property Name="ERECEPT_CERT" Type="varbinary" MaxLength="2000" />
+          <Property Name="ERECEPT_PWD" Type="varchar" MaxLength="30" />
+          <Property Name="AGRESSO_VERNR" Type="smallint" />
+          <Property Name="AGRESSO_KOD" Type="nvarchar" MaxLength="4" />
+          <Property Name="AGRESSO_DEFAVD" Type="nvarchar" MaxLength="8" />
+          <Property Name="AGRIA_OMBUDSNR" Type="varchar" MaxLength="10" />
+          <Property Name="AGRIA_EPOST_REPLY" Type="varchar" MaxLength="50" />
+          <Property Name="AGRIA_FAX" Type="varchar" MaxLength="17" />
+          <Property Name="AGRIA_SVARTYP" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="DPT_RESURS">
+          <Key>
+            <PropertyRef Name="SIGN" />
+          </Key>
+          <Property Name="SIGN" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="NAMN" Type="varchar" MaxLength="30" />
+          <Property Name="ADRESS" Type="varchar" MaxLength="25" />
+          <Property Name="POSTNR" Type="varchar" MaxLength="6" />
+          <Property Name="POSTADR" Type="varchar" MaxLength="20" />
+          <Property Name="TELNR" Type="varchar" MaxLength="12" />
+          <Property Name="FODD" Type="varchar" MaxLength="11" />
+          <Property Name="FNR" Type="varchar" MaxLength="4" />
+          <Property Name="TYP" Type="varchar" MaxLength="4" />
+          <Property Name="AKTIV" Type="varchar" MaxLength="4" />
+          <Property Name="RESURSTYPID" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="TIDINTERVALL" Type="decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="SCHEMA_FOM" Type="datetime" />
+          <Property Name="SCHEMA_TOM" Type="datetime" />
+          <Property Name="SCHEMA_CYKELTID" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="SCHEMA_CYKLISK" Type="decimal" Precision="1" Scale="0" />
+          <Property Name="SCHEMA_ID" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="KLINKOD" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="TIDBOKBAR" Type="decimal" Precision="1" Scale="0" />
+          <Property Name="LOSENORD" Type="varchar" MaxLength="10" />
+          <Property Name="VETID" Type="varchar" MaxLength="4" />
+          <Property Name="TITEL" Type="varchar" MaxLength="50" />
+          <Property Name="RIGHTS_TO_SIGN" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SIGN_RECEPT" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SIGN_DIAGNOS" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SENASTE_DEPONI" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PWD_CHECK_SIGNERA" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PWD_CHECK_BETMOT" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="SENASTE_KVITTONR" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="SENASTE_KRE_KVITTO" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="SENASTE_KONT_BET" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="PWD_CHECK_DAGANT" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="PWD_CHECK_ORDINERA" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="FORSKRIVARKOD" Type="nvarchar" MaxLength="4" />
+          <Property Name="PWD_CHECK_ERECEPT" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="DPT_TIDBOK">
+          <Key>
+            <PropertyRef Name="DATUM" />
+            <PropertyRef Name="SIGN" />
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="DATUM" Type="datetime" Nullable="false" />
+          <Property Name="SIGN" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="TID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="MINUTER" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="JOURNALNR" Type="varchar" MaxLength="8" />
+          <Property Name="ORSAK" Type="varchar" MaxLength="50" />
+          <Property Name="BOKNINGSTYPID" Type="decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="X_KUNDNR" Type="varchar" MaxLength="11" />
+          <Property Name="X_KUNDNAMN" Type="varchar" MaxLength="60" />
+          <Property Name="X_HEMTEL" Type="varchar" MaxLength="25" />
+          <Property Name="X_ARBTEL" Type="varchar" MaxLength="25" />
+          <Property Name="X_ALTTEL" Type="varchar" MaxLength="25" />
+          <Property Name="X_DJURNAMN" Type="varchar" MaxLength="30" />
+          <Property Name="X_RAS" Type="varchar" MaxLength="30" />
+          <Property Name="VTFNR" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="SCHEMA" Type="decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="BOKSIGN" Type="varchar" MaxLength="8" />
+          <Property Name="SEQID" Type="numeric" Precision="38" Scale="0" />
+          <Property Name="X_PERSNR" Type="varchar" MaxLength="13" />
+          <Property Name="INTERVALL" Type="decimal" Precision="2" Scale="0" />
+          <Property Name="TJGTYPID" Type="char" MaxLength="2" />
+          <Property Name="AVSLUTAD" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="TJGTYPID_OUT" Type="varchar" MaxLength="50" />
+          <Property Name="NATT_SCHEMA" Type="numeric" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="anicuraModelStoreContainer">
+          <EntitySet Name="DPT_KLINKOD" EntityType="Self.DPT_KLINKOD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DPT_RESURS" EntityType="Self.DPT_RESURS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DPT_TIDBOK" EntityType="Self.DPT_TIDBOK" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="anicuraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DPT_KLINKOD">
+          <Key>
+            <PropertyRef Name="KLIN" />
+          </Key>
+          <Property Name="KLIN" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NAMN" Type="String" MaxLength="41" FixedLength="false" Unicode="false" />
+          <Property Name="DEB" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="BESOKAVG" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="FAKTAVG" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="POSTNR" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="POSTADRESS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GATUADRESS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LOGO" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="RECEPT_BES" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="RECEPT_TEL" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="RECEPT_ARVODE_TXT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ERECEPT_CERT" Type="Binary" MaxLength="2000" FixedLength="false" />
+          <Property Name="ERECEPT_PWD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="AGRESSO_VERNR" Type="Int16" />
+          <Property Name="AGRESSO_KOD" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="AGRESSO_DEFAVD" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="AGRIA_OMBUDSNR" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AGRIA_EPOST_REPLY" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AGRIA_FAX" Type="String" MaxLength="17" FixedLength="false" Unicode="false" />
+          <Property Name="AGRIA_SVARTYP" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="DPT_RESURS">
+          <Key>
+            <PropertyRef Name="SIGN" />
+          </Key>
+          <Property Name="SIGN" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAMN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ADRESS" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="POSTNR" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="POSTADR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TELNR" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="FODD" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="FNR" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="TYP" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="AKTIV" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="RESURSTYPID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="TIDINTERVALL" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="SCHEMA_FOM" Type="DateTime" Precision="3" />
+          <Property Name="SCHEMA_TOM" Type="DateTime" Precision="3" />
+          <Property Name="SCHEMA_CYKELTID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SCHEMA_CYKLISK" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SCHEMA_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="KLINKOD" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TIDBOKBAR" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="LOSENORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="VETID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="TITEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RIGHTS_TO_SIGN" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SIGN_RECEPT" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SIGN_DIAGNOS" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SENASTE_DEPONI" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PWD_CHECK_SIGNERA" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PWD_CHECK_BETMOT" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="SENASTE_KVITTONR" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SENASTE_KRE_KVITTO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SENASTE_KONT_BET" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PWD_CHECK_DAGANT" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="PWD_CHECK_ORDINERA" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="FORSKRIVARKOD" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PWD_CHECK_ERECEPT" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="DPT_TIDBOK">
+          <Key>
+            <PropertyRef Name="DATUM" />
+            <PropertyRef Name="SIGN" />
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="DATUM" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SIGN" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MINUTER" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="JOURNALNR" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ORSAK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BOKNINGSTYPID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="X_KUNDNR" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="X_KUNDNAMN" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="X_HEMTEL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="X_ARBTEL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="X_ALTTEL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="X_DJURNAMN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="X_RAS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="VTFNR" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="SCHEMA" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="BOKSIGN" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="SEQID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="X_PERSNR" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="INTERVALL" Type="Decimal" Precision="2" Scale="0" />
+          <Property Name="TJGTYPID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="AVSLUTAD" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="TJGTYPID_OUT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NATT_SCHEMA" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="anicuraEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DPT_KLINKOD" EntityType="Self.DPT_KLINKOD" />
+          <EntitySet Name="DPT_RESURS" EntityType="Self.DPT_RESURS" />
+          <EntitySet Name="DPT_TIDBOK" EntityType="Self.DPT_TIDBOK" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="anicuraModelStoreContainer" CdmEntityContainer="anicuraEntities">
+          <EntitySetMapping Name="DPT_KLINKOD">
+            <EntityTypeMapping TypeName="anicuraModel.DPT_KLINKOD">
+              <MappingFragment StoreEntitySet="DPT_KLINKOD">
+                <ScalarProperty Name="KLIN" ColumnName="KLIN" />
+                <ScalarProperty Name="NAMN" ColumnName="NAMN" />
+                <ScalarProperty Name="DEB" ColumnName="DEB" />
+                <ScalarProperty Name="BESOKAVG" ColumnName="BESOKAVG" />
+                <ScalarProperty Name="FAKTAVG" ColumnName="FAKTAVG" />
+                <ScalarProperty Name="POSTNR" ColumnName="POSTNR" />
+                <ScalarProperty Name="POSTADRESS" ColumnName="POSTADRESS" />
+                <ScalarProperty Name="GATUADRESS" ColumnName="GATUADRESS" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="LOGO" ColumnName="LOGO" />
+                <ScalarProperty Name="RECEPT_BES" ColumnName="RECEPT_BES" />
+                <ScalarProperty Name="RECEPT_TEL" ColumnName="RECEPT_TEL" />
+                <ScalarProperty Name="RECEPT_ARVODE_TXT" ColumnName="RECEPT_ARVODE_TXT" />
+                <ScalarProperty Name="ERECEPT_CERT" ColumnName="ERECEPT_CERT" />
+                <ScalarProperty Name="ERECEPT_PWD" ColumnName="ERECEPT_PWD" />
+                <ScalarProperty Name="AGRESSO_VERNR" ColumnName="AGRESSO_VERNR" />
+                <ScalarProperty Name="AGRESSO_KOD" ColumnName="AGRESSO_KOD" />
+                <ScalarProperty Name="AGRESSO_DEFAVD" ColumnName="AGRESSO_DEFAVD" />
+                <ScalarProperty Name="AGRIA_OMBUDSNR" ColumnName="AGRIA_OMBUDSNR" />
+                <ScalarProperty Name="AGRIA_EPOST_REPLY" ColumnName="AGRIA_EPOST_REPLY" />
+                <ScalarProperty Name="AGRIA_FAX" ColumnName="AGRIA_FAX" />
+                <ScalarProperty Name="AGRIA_SVARTYP" ColumnName="AGRIA_SVARTYP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DPT_RESURS">
+            <EntityTypeMapping TypeName="anicuraModel.DPT_RESURS">
+              <MappingFragment StoreEntitySet="DPT_RESURS">
+                <ScalarProperty Name="SIGN" ColumnName="SIGN" />
+                <ScalarProperty Name="NAMN" ColumnName="NAMN" />
+                <ScalarProperty Name="ADRESS" ColumnName="ADRESS" />
+                <ScalarProperty Name="POSTNR" ColumnName="POSTNR" />
+                <ScalarProperty Name="POSTADR" ColumnName="POSTADR" />
+                <ScalarProperty Name="TELNR" ColumnName="TELNR" />
+                <ScalarProperty Name="FODD" ColumnName="FODD" />
+                <ScalarProperty Name="FNR" ColumnName="FNR" />
+                <ScalarProperty Name="TYP" ColumnName="TYP" />
+                <ScalarProperty Name="AKTIV" ColumnName="AKTIV" />
+                <ScalarProperty Name="RESURSTYPID" ColumnName="RESURSTYPID" />
+                <ScalarProperty Name="TIDINTERVALL" ColumnName="TIDINTERVALL" />
+                <ScalarProperty Name="SCHEMA_FOM" ColumnName="SCHEMA_FOM" />
+                <ScalarProperty Name="SCHEMA_TOM" ColumnName="SCHEMA_TOM" />
+                <ScalarProperty Name="SCHEMA_CYKELTID" ColumnName="SCHEMA_CYKELTID" />
+                <ScalarProperty Name="SCHEMA_CYKLISK" ColumnName="SCHEMA_CYKLISK" />
+                <ScalarProperty Name="SCHEMA_ID" ColumnName="SCHEMA_ID" />
+                <ScalarProperty Name="KLINKOD" ColumnName="KLINKOD" />
+                <ScalarProperty Name="TIDBOKBAR" ColumnName="TIDBOKBAR" />
+                <ScalarProperty Name="LOSENORD" ColumnName="LOSENORD" />
+                <ScalarProperty Name="VETID" ColumnName="VETID" />
+                <ScalarProperty Name="TITEL" ColumnName="TITEL" />
+                <ScalarProperty Name="RIGHTS_TO_SIGN" ColumnName="RIGHTS_TO_SIGN" />
+                <ScalarProperty Name="SIGN_RECEPT" ColumnName="SIGN_RECEPT" />
+                <ScalarProperty Name="SIGN_DIAGNOS" ColumnName="SIGN_DIAGNOS" />
+                <ScalarProperty Name="SENASTE_DEPONI" ColumnName="SENASTE_DEPONI" />
+                <ScalarProperty Name="PWD_CHECK_SIGNERA" ColumnName="PWD_CHECK_SIGNERA" />
+                <ScalarProperty Name="PWD_CHECK_BETMOT" ColumnName="PWD_CHECK_BETMOT" />
+                <ScalarProperty Name="SENASTE_KVITTONR" ColumnName="SENASTE_KVITTONR" />
+                <ScalarProperty Name="SENASTE_KRE_KVITTO" ColumnName="SENASTE_KRE_KVITTO" />
+                <ScalarProperty Name="SENASTE_KONT_BET" ColumnName="SENASTE_KONT_BET" />
+                <ScalarProperty Name="PWD_CHECK_DAGANT" ColumnName="PWD_CHECK_DAGANT" />
+                <ScalarProperty Name="PWD_CHECK_ORDINERA" ColumnName="PWD_CHECK_ORDINERA" />
+                <ScalarProperty Name="FORSKRIVARKOD" ColumnName="FORSKRIVARKOD" />
+                <ScalarProperty Name="PWD_CHECK_ERECEPT" ColumnName="PWD_CHECK_ERECEPT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DPT_TIDBOK">
+            <EntityTypeMapping TypeName="anicuraModel.DPT_TIDBOK">
+              <MappingFragment StoreEntitySet="DPT_TIDBOK">
+                <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+                <ScalarProperty Name="SIGN" ColumnName="SIGN" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="MINUTER" ColumnName="MINUTER" />
+                <ScalarProperty Name="JOURNALNR" ColumnName="JOURNALNR" />
+                <ScalarProperty Name="ORSAK" ColumnName="ORSAK" />
+                <ScalarProperty Name="BOKNINGSTYPID" ColumnName="BOKNINGSTYPID" />
+                <ScalarProperty Name="X_KUNDNR" ColumnName="X_KUNDNR" />
+                <ScalarProperty Name="X_KUNDNAMN" ColumnName="X_KUNDNAMN" />
+                <ScalarProperty Name="X_HEMTEL" ColumnName="X_HEMTEL" />
+                <ScalarProperty Name="X_ARBTEL" ColumnName="X_ARBTEL" />
+                <ScalarProperty Name="X_ALTTEL" ColumnName="X_ALTTEL" />
+                <ScalarProperty Name="X_DJURNAMN" ColumnName="X_DJURNAMN" />
+                <ScalarProperty Name="X_RAS" ColumnName="X_RAS" />
+                <ScalarProperty Name="VTFNR" ColumnName="VTFNR" />
+                <ScalarProperty Name="SCHEMA" ColumnName="SCHEMA" />
+                <ScalarProperty Name="BOKSIGN" ColumnName="BOKSIGN" />
+                <ScalarProperty Name="SEQID" ColumnName="SEQID" />
+                <ScalarProperty Name="X_PERSNR" ColumnName="X_PERSNR" />
+                <ScalarProperty Name="INTERVALL" ColumnName="INTERVALL" />
+                <ScalarProperty Name="TJGTYPID" ColumnName="TJGTYPID" />
+                <ScalarProperty Name="AVSLUTAD" ColumnName="AVSLUTAD" />
+                <ScalarProperty Name="TJGTYPID_OUT" ColumnName="TJGTYPID_OUT" />
+                <ScalarProperty Name="NATT_SCHEMA" ColumnName="NATT_SCHEMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
